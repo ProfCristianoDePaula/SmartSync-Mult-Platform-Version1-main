@@ -1,0 +1,42 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+[Dd]ebug/
+[Rr]elease/
+
+# Rider / VS Code
+.vs/
+.vscode/
+.idea/
+
+# Test results
+TestResults/
+
+# Cobertura (relatórios XML gerados por dotnet test)
+coverage/
+
+# Secrets
+appsettings.*.local.json
+secrets.json
+
+# JWT signing keys (RSA PEM)
+keys/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Docs memory lock
+*.lock
+
+# Sinais de logging do Serilog no runtime
+logs/
+
+# Variáveis de ambiente do docker compose (reais, com segredos)
+.env
+
+# Apenas o modelo SEM segredos é versionado (.env.example)

@@ -1,0 +1,162 @@
+name: identity-tenants
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: identity_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-identity}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - identity-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-identity}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: identity_api
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=${POSTGRES_DB:-identity};Username=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-postgres}"
+      Cache__Mode: ${CACHE_MODE:-redis}
+      Cache__RedisConnectionString: "valkey:6379"
+      Jwt__Issuer: ${JWT_ISSUER:-http://localhost:8080}
+      Jwt__Audience: ${JWT_AUDIENCE:-identity-api}
+      Jwt__SigningKeyPath: /app/keys/jwt-signing-key.pem
+      Jwt__KeyId: ${JWT_KEY_ID:-identity-signing-key}
+      # Senha do SuperAdmin de bootstrap (sa@smartsync.com.br), criado pelo DbSeeder.
+      SEED_SUPERADMIN_PASSWORD: ${SEED_SUPERADMIN_PASSWORD:?Defina SEED_SUPERADMIN_PASSWORD no .env}
+      # E-mail transacional (SMTP). EnableSmtp vira true quando Email__SmtpHost não é vazio.
+      Email__From: ${EMAIL_FROM:-no-reply@identity.local}
+      Email__FromName: ${EMAIL_FROM_NAME:-Identity Service}
+      Email__SmtpHost: ${EMAIL_SMTP_HOST:-}
+      Email__SmtpPort: ${EMAIL_SMTP_PORT:-587}
+      Email__UseSsl: ${EMAIL_USE_SSL:-false}
+      Email__Username: ${EMAIL_USERNAME:-}
+      Email__Password: ${EMAIL_PASSWORD:-}
+      # Chaves do DataProtection persistidas no volume (tokens sobrevivem a restarts).
+      DataProtection__KeyPath: /app/keys/dataprotection
+      # SMS (Twilio). Provider "twilio" envia real; "log" (padrão) só loga.
+      # BodyTemplate preenchido = modo trial (ex.: "sms_2fa"); vazio = texto customizado (conta paga).
+      Sms__Provider: ${SMS_PROVIDER:-log}
+      Sms__AccountSid: ${SMS_ACCOUNT_SID:-}
+      Sms__AuthToken: ${SMS_AUTH_TOKEN:-}
+      Sms__FromNumber: ${SMS_FROM_NUMBER:-}
+      Sms__BodyTemplate: ${SMS_BODY_TEMPLATE:-}
+      # Login social (OAuth) — credenciais criadas nos consoles Google/Meta.
+      # Vazio = recurso desabilitado (não configura AddGoogle/AddFacebook).
+      OAuth__Google__ClientId: ${OAuth__Google__ClientId:-}
+      OAuth__Google__ClientSecret: ${OAuth__Google__ClientSecret:-}
+      OAuth__Facebook__ClientId: ${OAuth__Facebook__ClientId:-}
+      OAuth__Facebook__ClientSecret: ${OAuth__Facebook__ClientSecret:-}
+    ports:
+      - "${API_PORT:-8080}:8080"
+    volumes:
+      - jwtkeys:/app/keys
+    networks:
+      - identity-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      valkey:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  # Cache distribuído (Etapa 07): fork open source do Redis (Valkey).
+  # A API usa StackExchange.Redis via IDistributedCache quando Cache.Mode = redis.
+  valkey:
+    image: valkey/valkey:8-alpine
+    container_name: identity_valkey
+    restart: unless-stopped
+    command: ["valkey-server", "--maxmemory", "64mb", "--maxmemory-policy", "allkeys-lru"]
+    networks:
+      - identity-net
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  # ===========================================================================
+  # ESTOQUE — segundo microsserviço (Etapa 24). Postgres próprio
+  # (database-per-service) e API na MESMA rede do Identity para consumir
+  # JWKS/gate de módulo por HTTP interno (consulta direta ao banco é proibida).
+  # ===========================================================================
+  estoque-postgres:
+    image: postgres:16-alpine
+    container_name: estoque_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${ESTOQUE_POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${ESTOQUE_POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${ESTOQUE_POSTGRES_DB:-estoque}
+    volumes:
+      - estoque_pgdata:/var/lib/postgresql/data
+    networks:
+      - identity-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${ESTOQUE_POSTGRES_USER:-postgres} -d ${ESTOQUE_POSTGRES_DB:-estoque}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  estoque-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.estoque
+    container_name: estoque_api
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: "Host=estoque-postgres;Port=5432;Database=${ESTOQUE_POSTGRES_DB:-estoque};Username=${ESTOQUE_POSTGRES_USER:-postgres};Password=${ESTOQUE_POSTGRES_PASSWORD:-postgres}"
+      # Issuer/Audience CANÔNICOS — devem ser os MESMOS do Identity (auditoria).
+      Jwt__Issuer: ${JWT_ISSUER:-http://localhost:8080}
+      Jwt__Audience: ${JWT_AUDIENCE:-identity-api}
+      # URL interna do Identity na rede compartilhada.
+      Identity__BaseUrl: ${IDENTITY_BASE_URL:-http://api:8080}
+    ports:
+      - "${ESTOQUE_API_PORT:-8081}:8080"
+    networks:
+      - identity-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+      estoque-postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+networks:
+  identity-net:
+    driver: bridge
+
+volumes:
+  pgdata:
+  jwtkeys:
+  estoque_pgdata:

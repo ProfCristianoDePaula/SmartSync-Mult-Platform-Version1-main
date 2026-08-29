@@ -1,0 +1,36 @@
+# =============================================================================
+# docker-compose.override.yml — SOBREPOSIÇÃO DE DESENVOLVIMENTO
+#
+# Diferenciais em relação ao docker-compose.yml:
+#   - expõe as portas do Postgres e Valkey na máquina host APENAS em dev
+#     (útil para acessar com psql / valkey-cli / RedisInsight locais);
+#   - força ASPNETCORE_ENVIRONMENT=Development (OpenAPI/MapOpenApi habilitado).
+#
+# É aplicada automaticamente pelo `docker compose up` (sem precisar de -f).
+# Para rodar o stack em modo produção/limpo, use:
+#   docker compose -f docker-compose.yml up -d
+#
+# Nenhum segredo vive aqui: credenciais são injetadas 100% via .env.
+# ===========================================================================
+
+services:
+  postgres:
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+
+  valkey:
+    ports:
+      - "${VALKEY_PORT:-6379}:6379"
+
+  api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+
+  estoque-postgres:
+    ports:
+      - "${ESTOQUE_POSTGRES_PORT:-5433}:5432"
+
+  estoque-api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__BaseUrl: ${IDENTITY_BASE_URL:-http://api:8080}
