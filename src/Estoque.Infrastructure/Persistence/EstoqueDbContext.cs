@@ -23,6 +23,13 @@ public sealed class EstoqueDbContext : DbContext
     public DbSet<PurchaseSuggestion> PurchaseSuggestions => Set<PurchaseSuggestion>();
     public DbSet<XmlImport> XmlImports => Set<XmlImport>();
     public DbSet<Alert> Alerts => Set<Alert>();
+    public DbSet<Cupom> Cupons => Set<Cupom>();
+    public DbSet<CupomProduto> CupomProdutos => Set<CupomProduto>();
+    public DbSet<Pedido> Pedidos => Set<Pedido>();
+    public DbSet<ProdutosPedido> ProdutosPedidos => Set<ProdutosPedido>();
+    public DbSet<Venda> Vendas => Set<Venda>();
+    public DbSet<ProdutosVenda> ProdutosVendas => Set<ProdutosVenda>();
+    public DbSet<FormaPagto> FormasPagto => Set<FormaPagto>();
     public DbSet<Outbox.OutboxMessage> OutboxMessages => Set<Outbox.OutboxMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

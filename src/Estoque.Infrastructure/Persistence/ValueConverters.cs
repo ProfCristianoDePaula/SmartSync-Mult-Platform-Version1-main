@@ -41,6 +41,27 @@ public static class ValueConverters
     public static readonly ValueConverter<StockMovementId, Guid> StockMovement =
         new(v => v.Value, v => StockMovementId.From(v));
 
+    public static readonly ValueConverter<CupomId, Guid> Cupom =
+        new(v => v.Value, v => CupomId.From(v));
+
+    public static readonly ValueConverter<CupomProdutoId, Guid> CupomProduto =
+        new(v => v.Value, v => CupomProdutoId.From(v));
+
+    public static readonly ValueConverter<PedidoId, Guid> Pedido =
+        new(v => v.Value, v => PedidoId.From(v));
+
+    public static readonly ValueConverter<ProdutosPedidoId, Guid> ProdutosPedido =
+        new(v => v.Value, v => ProdutosPedidoId.From(v));
+
+    public static readonly ValueConverter<VendaId, Guid> Venda =
+        new(v => v.Value, v => VendaId.From(v));
+
+    public static readonly ValueConverter<ProdutosVendaId, Guid> ProdutosVenda =
+        new(v => v.Value, v => ProdutosVendaId.From(v));
+
+    public static readonly ValueConverter<FormaPagtoId, Guid> FormaPagto =
+        new(v => v.Value, v => FormaPagtoId.From(v));
+
     public static readonly ValueConverter<Sku, string> SkuText =
         new(v => v.Value, v => Sku.FromValidated(v));
 

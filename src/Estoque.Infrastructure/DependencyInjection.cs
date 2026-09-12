@@ -4,6 +4,7 @@ using Estoque.Application.Common;
 using Estoque.Application.Integracao;
 using Estoque.Application.IntegrationServices;
 using Estoque.Application.Movimentacoes;
+using Estoque.Application.PedidosVendas;
 using Estoque.Application.Politicas;
 using Estoque.Application.Repositories;
 using Estoque.Infrastructure.Identity;
@@ -70,6 +71,13 @@ public static class DependencyInjection
         services.AddScoped<IAlertRepository, AlertRepository>();
         services.AddScoped<IPurchaseSuggestionRepository, PurchaseSuggestionRepository>();
         services.AddScoped<IXmlImportRepository, XmlImportRepository>();
+        services.AddScoped<ICupomRepository, CupomRepository>();
+        services.AddScoped<ICupomProdutoRepository, CupomProdutoRepository>();
+        services.AddScoped<IPedidoRepository, PedidoRepository>();
+        services.AddScoped<IProdutosPedidoRepository, ProdutosPedidoRepository>();
+        services.AddScoped<IVendaRepository, VendaRepository>();
+        services.AddScoped<IProdutosVendaRepository, ProdutosVendaRepository>();
+        services.AddScoped<IFormaPagtoRepository, FormaPagtoRepository>();
 
         // Serviços de aplicação (implementações).
         services.AddScoped<IProductService, ProductService>();
@@ -85,6 +93,15 @@ public static class DependencyInjection
         services.AddScoped<IAlertService, AlertService>();
         services.AddScoped<IPurchaseSuggestionService, PurchaseSuggestionService>();
         services.AddScoped<IXmlImportService, XmlImportService>();
+        // Pedidos e Vendas (Etapas 3-5)
+        services.AddScoped<ICupomService, Services.PedidosVendas.CupomService>();
+        services.AddScoped<IAplicarCupomService, Services.PedidosVendas.AplicarCupomService>();
+        services.AddScoped<IPedidoService, Services.PedidosVendas.PedidoService>();
+        services.AddScoped<ICalculoFreteService, Services.PedidosVendas.CalculoFreteService>();
+        services.AddScoped<ITenantParcelamentoProvider, Services.PedidosVendas.TenantParcelamentoProvider>();
+        services.AddScoped<IFormaPagtoService, Services.PedidosVendas.FormaPagtoService>();
+        services.AddScoped<IVendaService, Services.PedidosVendas.VendaService>();
+        services.AddScoped<ICheckoutService, Services.PedidosVendas.CheckoutService>();
 
         // Background jobs (BackgroundService nativo — sem dependências novas).
         services.AddHostedService<ExpiryScanWorker>();
