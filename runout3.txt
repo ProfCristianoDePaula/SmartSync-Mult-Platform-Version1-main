@@ -1,0 +1,1348 @@
+  Determining projects to restore...
+  Restored /workspace/src/Fiscal.Domain/Fiscal.Domain.csproj (in 100 ms).
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Restored /workspace/src/Fiscal.Infrastructure/Fiscal.Infrastructure.csproj (in 626 ms).
+  Restored /workspace/src/Fiscal.Application/Fiscal.Application.csproj (in 626 ms).
+  Restored /workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj (in 645 ms).
+  1 of 5 projects are up-to-date for restore.
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Fiscal.Domain -> /workspace/src/Fiscal.Domain/bin/Release/net10.0/Fiscal.Domain.dll
+  Fiscal.Application -> /workspace/src/Fiscal.Application/bin/Release/net10.0/Fiscal.Application.dll
+  Fiscal.Infrastructure -> /workspace/src/Fiscal.Infrastructure/bin/Release/net10.0/Fiscal.Infrastructure.dll
+  Fiscal.Api -> /workspace/src/Fiscal.Api/bin/Release/net10.0/Fiscal.Api.dll
+  Fiscal.Tests -> /workspace/tests/Fiscal.Tests/bin/Release/net10.0/Fiscal.Tests.dll
+Test run for /workspace/tests/Fiscal.Tests/bin/Release/net10.0/Fiscal.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.10)
+[xUnit.net 00:00:00.10]   Discovering: Fiscal.Tests
+[xUnit.net 00:00:00.13]   Discovered:  Fiscal.Tests
+[xUnit.net 00:00:00.15]   Starting:    Fiscal.Tests
+[testcontainers.org 00:00:00.09] Connected to Docker:
+  Host: unix:///var/run/docker.sock
+  Server Version: 29.8.0
+  Kernel Version: 6.18.33.2-microsoft-standard-WSL2
+  API Version: 1.56
+  Operating System: Docker Desktop
+  Total Memory: 15.46 GB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+[testcontainers.org 00:00:00.24] Docker container 230ea04fb630 created
+[testcontainers.org 00:00:00.27] Start Docker container 230ea04fb630
+[testcontainers.org 00:00:00.44] Wait for Docker container 230ea04fb630 to complete readiness checks
+[testcontainers.org 00:00:00.46] Execute "pg_isready --host localhost --dbname fiscal --username postgres" at Docker container 230ea04fb630
+[testcontainers.org 00:00:01.52] Execute "pg_isready --host localhost --dbname fiscal --username postgres" at Docker container 230ea04fb630
+[testcontainers.org 00:00:01.58] Docker container 230ea04fb630 ready
+[17:46:53 ERR] [] Failed executing DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+[17:46:53 INF] [] Applying migration '20260919162855_InitialCreate'.
+[17:46:53 INF] [] Applying migration '20260919164424_AddCatalogoUfSefaz'.
+[17:46:53 INF] [] Applying migration '20260919171230_AddNfseMunicipios'.
+[17:46:53 INF] [] Applying migration '20260919171912_AddEmitenteFiscal'.
+[17:46:53 INF] [] Applying migration '20260919172813_AddCertificados'.
+[17:46:53 INF] [] Applying migration '20260919173134_AddCscToken'.
+[17:46:54 INF] [] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM nfse_ambientes AS n
+    WHERE n.is_active)
+[17:46:54 INF] [] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Int32), @p8='?' (DbType = Guid), @p9='?' (DbType = Int32), @p10='?', @p11='?', @p12='?', @p13='?', @p14='?' (DbType = DateTime), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+INSERT INTO nfse_ambientes (id, ambiente, base_url_adn, base_url_parametros, base_url_sefin, codigo_ibge, deleted_at_utc, modo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING is_active, verificado;
+INSERT INTO nfse_ambientes (id, ambiente, base_url_adn, base_url_parametros, base_url_sefin, codigo_ibge, deleted_at_utc, modo)
+VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15)
+RETURNING is_active, verificado;
+[17:46:54 DBG] [] Hosting starting
+[17:46:54 WRN] [] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+[17:46:54 INF] [] User profile is available. Using '/root/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+[17:46:54 INF] [] Creating key {1b85cef9-a133-401d-a2b0-2a709ae1d2e3} with creation date 2026-09-19 17:46:54Z, activation date 2026-09-19 17:46:54Z, and expiration date 2026-12-18 17:46:54Z.
+[17:46:54 INF] [] Start processing HTTP request GET http://localhost:1/api/auth/jwks
+[17:46:54 WRN] [] No XML encryptor configured. Key {1b85cef9-a133-401d-a2b0-2a709ae1d2e3} may be persisted to storage in unencrypted form.
+[17:46:54 INF] [] Sending HTTP request GET http://localhost:1/api/auth/jwks
+[17:46:54 INF] [] Writing data to file '/root/.aspnet/DataProtection-Keys/key-1b85cef9-a133-401d-a2b0-2a709ae1d2e3.xml'.
+[17:46:54 INF] [] HTTP request failed after 21.4446ms
+System.Net.Http.HttpRequestException: Connection refused (localhost:1)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.SocketsHttpHandler.<SendAsync>g__CreateHandlerAndSendAsync|115_0(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+[17:46:54 INF] [] Now listening on: http://*:8080
+[17:46:54 INF] [] HTTP request failed after 44.6368ms
+System.Net.Http.HttpRequestException: Connection refused (localhost:1)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.SocketsHttpHandler.<SendAsync>g__CreateHandlerAndSendAsync|115_0(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+[17:46:54 INF] [] Application started. Press Ctrl+C to shut down.
+[17:46:54 INF] [] Hosting environment: Development
+[17:46:54 INF] [] Content root path: /workspace/src/Fiscal.Api
+[17:46:54 INF] [] Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.branch_id, c.cnpj_certificado, c.created_at_utc, c.enviado_por, c.key_id, c.not_after, c.not_before, c.pfx_cifrado, c.senha_cifrada, c.status, c.subject, c.tenant_id, c.thumbprint, c.tipo
+FROM certificados_digitais AS c
+[17:46:54 DBG] [] Hosting started
+[17:46:54 INF] [] Validade de certificados verificada (0 alertas).
+[17:46:54 WRN] [] Falha ao carregar JWKS do Identity; nova tentativa em 15s.
+System.Net.Http.HttpRequestException: Connection refused (localhost:1)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.SocketsHttpHandler.<SendAsync>g__CreateHandlerAndSendAsync|115_0(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.GetStringAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Fiscal.Infrastructure.Identity.JwksKeyStore.RefreshAsync(HttpClient httpClient, CancellationToken ct) in /workspace/src/Fiscal.Infrastructure/Identity/JwksKeyStore.cs:line 24
+   at Fiscal.Infrastructure.Identity.JwksRefreshService.ExecuteAsync(CancellationToken stoppingToken) in /workspace/src/Fiscal.Infrastructure/Identity/JwksKeyStore.cs:line 55
+[17:46:54 INF] [] Request starting HTTP/1.1 GET http://localhost/api/health - null null
+[17:46:54 WRN] [2d76f42a811149828ac9d125140365c1] Failed to determine the https port for redirect.
+[17:46:54 INF] [2d76f42a811149828ac9d125140365c1] Executing endpoint 'Health checks'
+[17:46:54 DBG] [2d76f42a811149828ac9d125140365c1] Running health checks
+[17:46:54 DBG] [2d76f42a811149828ac9d125140365c1] Running health check fiscal-postgres
+[17:46:54 DBG] [2d76f42a811149828ac9d125140365c1] Health check fiscal-postgres with status Healthy completed after 6.1227ms with message 'null'
+[17:46:54 DBG] [2d76f42a811149828ac9d125140365c1] Health check processing with combined status Healthy completed after 14.0061ms
+[17:46:54 INF] [2d76f42a811149828ac9d125140365c1] Executed endpoint 'Health checks'
+[17:46:54 INF] [2d76f42a811149828ac9d125140365c1] HTTP GET /api/health responded 200 in 65.9730 ms
+[17:46:54 INF] [] Request finished HTTP/1.1 GET http://localhost/api/health - 200 null text/plain 109.1151ms
+[17:46:54 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3525300/situacao - null null
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Route matched with {action = "Situacao", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Situacao(System.String, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executed DbCommand (3ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executed DbCommand (2ms) [Parameters=[@Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.ambiente, n.base_url_adn, n.base_url_parametros, n.base_url_sefin, n.codigo_ibge, n.deleted_at_utc, n.is_active, n.modo, n.verificado
+FROM nfse_ambientes AS n
+WHERE n.is_active AND (n.codigo_ibge = @Trim OR n.codigo_ibge = '*')
+ORDER BY n.ambiente
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseSituacaoDto'.
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api) in 134.0663ms
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:54 INF] [c403d809bd094673bdcea9b1a17cb144] HTTP GET /api/fiscal/nfse/municipios/3525300/situacao responded 200 in 178.2128 ms
+[17:46:54 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3525300/situacao - 200 null application/json; charset=utf-8 182.0244ms
+[17:46:54 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - multipart/form-data; boundary="85c05273-1cd0-4437-b24f-704c5f096816" 516
+[17:46:54 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:54 INF] [eaf5eab13c1d47c7896cf5b472b9072a] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (SuperAdmin)
+[17:46:54 INF] [eaf5eab13c1d47c7896cf5b472b9072a] AuthenticationScheme: Bearer was forbidden.
+[17:46:54 INF] [eaf5eab13c1d47c7896cf5b472b9072a] HTTP POST /api/fiscal/nfse/municipios/importar responded 403 in 7.6732 ms
+[17:46:54 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - 403 null null 13.193ms
+[17:46:54 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - multipart/form-data; boundary="d08e61cd-ea46-48a1-9ec9-3e09eeffb0d5" 516
+[17:46:54 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:54 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api)'
+[17:46:54 INF] [0e49ac0ce8794823aa2d18bce27984ea] Route matched with {action = "Importar", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Importar(Microsoft.AspNetCore.Http.IFormFile, Boolean, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:54 WRN] [0e49ac0ce8794823aa2d18bce27984ea] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+[17:46:54 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (3ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?' (DbType = Guid), @p6='?', @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = DateTime), @p13='?', @p14='?', @p15='?' (DbType = Guid), @p16='?', @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = DateTime), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p27='?' (DbType = Guid), @p24='?' (DbType = DateTime), @p25='?', @p26='?' (DbType = Int32), @p28='?' (DbType = Guid), @p29='?' (DbType = DateTime), @p30='?', @p31='?' (DbType = DateTime), @p32='?', @p33='?' (DbType = Int32), @p34='?', @p35='?' (DbType = Guid), @p36='?' (DbType = DateTime), @p37='?', @p38='?' (DbType = DateTime), @p39='?', @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Guid), @p43='?' (DbType = DateTime), @p44='?', @p45='?' (DbType = DateTime), @p46='?', @p47='?' (DbType = Int32), @p48='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO municipios (id, codigo_ibge, deleted_at_utc, nome, uf)
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING is_active;
+INSERT INTO municipios (id, codigo_ibge, deleted_at_utc, nome, uf)
+VALUES (@p5, @p6, @p7, @p8, @p9)
+RETURNING is_active;
+INSERT INTO municipios (id, codigo_ibge, deleted_at_utc, nome, uf)
+VALUES (@p10, @p11, @p12, @p13, @p14)
+RETURNING is_active;
+INSERT INTO nfse_import_runs (id, arquivo_hash, atualizados, criados, ignorados_manuais, ocorrido_em, rejeitados, total, user_id)
+VALUES (@p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);
+UPDATE nfse_municipio_configs SET atualizado_em = @p24, fonte = @p25, modo = @p26
+WHERE id = @p27;
+INSERT INTO nfse_municipio_configs (id, atualizado_em, codigo_ibge, deleted_at_utc, fonte, modo, observacao)
+VALUES (@p28, @p29, @p30, @p31, @p32, @p33, @p34)
+RETURNING is_active, sobrescrito_manual;
+INSERT INTO nfse_municipio_configs (id, atualizado_em, codigo_ibge, deleted_at_utc, fonte, modo, observacao)
+VALUES (@p35, @p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING is_active, sobrescrito_manual;
+INSERT INTO nfse_municipio_configs (id, atualizado_em, codigo_ibge, deleted_at_utc, fonte, modo, observacao)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47, @p48)
+RETURNING is_active, sobrescrito_manual;
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseImportReport'.
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api) in 143.019ms
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api)'
+[17:46:55 INF] [0e49ac0ce8794823aa2d18bce27984ea] HTTP POST /api/fiscal/nfse/municipios/importar responded 200 in 156.0324 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - 200 null application/json; charset=utf-8 159.4816ms
+[17:46:55 INF] [] Request starting HTTP/1.1 PUT http://localhost/api/fiscal/nfse/municipios/3106200 - application/json; charset=utf-8 91
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Override (Fiscal.Api)'
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Route matched with {action = "Override", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Override(System.String, OverrideBody, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executed DbCommand (2ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+UPDATE nfse_municipio_configs SET atualizado_em = @p0, modo = @p1, observacao = @p2, sobrescrito_manual = @p3
+WHERE id = @p4;
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseMunicipioConfigDto'.
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Override (Fiscal.Api) in 50.7923ms
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Override (Fiscal.Api)'
+[17:46:55 INF] [fc2441ffa5f447c491bac274577b2cf6] HTTP PUT /api/fiscal/nfse/municipios/3106200 responded 200 in 61.2432 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 PUT http://localhost/api/fiscal/nfse/municipios/3106200 - 200 null application/json; charset=utf-8 64.6824ms
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - multipart/form-data; boundary="ab79251f-25d4-4fef-b41b-9aaf99ed8243" 516
+[17:46:55 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api)'
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Route matched with {action = "Importar", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Importar(Microsoft.AspNetCore.Http.IFormFile, Boolean, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:55 WRN] [27311d74353c447a87a72772dc496c8a] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (4ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO nfse_import_runs (id, arquivo_hash, atualizados, criados, ignorados_manuais, ocorrido_em, rejeitados, total, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseImportReport'.
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api) in 54.3484ms
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api)'
+[17:46:55 INF] [27311d74353c447a87a72772dc496c8a] HTTP POST /api/fiscal/nfse/municipios/importar responded 200 in 58.8030 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - 200 null application/json; charset=utf-8 62.0687ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3106200/situacao - null null
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Route matched with {action = "Situacao", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Situacao(System.String, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executed DbCommand (3ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executed DbCommand (2ms) [Parameters=[@Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.ambiente, n.base_url_adn, n.base_url_parametros, n.base_url_sefin, n.codigo_ibge, n.deleted_at_utc, n.is_active, n.modo, n.verificado
+FROM nfse_ambientes AS n
+WHERE n.is_active AND (n.codigo_ibge = @Trim OR n.codigo_ibge = '*')
+ORDER BY n.ambiente
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseSituacaoDto'.
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api) in 14.9029ms
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:55 INF] [5c0b6780796d4af690d32bd0fb1cf1f3] HTTP GET /api/fiscal/nfse/municipios/3106200/situacao responded 200 in 18.7203 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3106200/situacao - 200 null application/json; charset=utf-8 20.9485ms
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - multipart/form-data; boundary="32bca495-d024-4398-bb0f-af2b49f3f1ae" 219
+[17:46:55 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:55 INF] [46f08f03f92f404f97c6c471cef4b8c1] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api)'
+[17:46:55 INF] [46f08f03f92f404f97c6c471cef4b8c1] Route matched with {action = "Importar", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Importar(Microsoft.AspNetCore.Http.IFormFile, Boolean, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:55 WRN] [46f08f03f92f404f97c6c471cef4b8c1] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+[17:46:55 INF] [46f08f03f92f404f97c6c471cef4b8c1] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:55 INF] [46f08f03f92f404f97c6c471cef4b8c1] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api) in 11.8365ms
+[17:46:55 INF] [46f08f03f92f404f97c6c471cef4b8c1] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Importar (Fiscal.Api)'
+[17:46:55 INF] [46f08f03f92f404f97c6c471cef4b8c1] HTTP POST /api/fiscal/nfse/municipios/importar responded 400 in 15.3500 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/nfse/municipios/importar - 400 null application/problem+json; charset=utf-8 17.892ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3550308/situacao - null null
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Route matched with {action = "Situacao", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Situacao(System.String, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executed DbCommand (2ms) [Parameters=[@Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.ambiente, n.base_url_adn, n.base_url_parametros, n.base_url_sefin, n.codigo_ibge, n.deleted_at_utc, n.is_active, n.modo, n.verificado
+FROM nfse_ambientes AS n
+WHERE n.is_active AND (n.codigo_ibge = @Trim OR n.codigo_ibge = '*')
+ORDER BY n.ambiente
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseSituacaoDto'.
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api) in 14.3115ms
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:55 INF] [a7269d6ab70b4b269bd41bcd927e7c4b] HTTP GET /api/fiscal/nfse/municipios/3550308/situacao responded 200 in 17.5973 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3550308/situacao - 200 null application/json; charset=utf-8 19.5814ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3525300/situacao - null null
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executing endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Route matched with {action = "Situacao", controller = "NfseMunicipios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Situacao(System.String, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.NfseMunicipiosController (Fiscal.Api).
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.atualizado_em, n.codigo_ibge, n.deleted_at_utc, n.fonte, n.is_active, n.modo, n.observacao, n.sobrescrito_manual
+FROM nfse_municipio_configs AS n
+WHERE n.is_active AND n.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executed DbCommand (2ms) [Parameters=[@Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT n.id, n.ambiente, n.base_url_adn, n.base_url_parametros, n.base_url_sefin, n.codigo_ibge, n.deleted_at_utc, n.is_active, n.modo, n.verificado
+FROM nfse_ambientes AS n
+WHERE n.is_active AND (n.codigo_ibge = @Trim OR n.codigo_ibge = '*')
+ORDER BY n.ambiente
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executing OkObjectResult, writing value of type 'Fiscal.Application.Nfse.NfseSituacaoDto'.
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executed action Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api) in 12.6145ms
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] Executed endpoint 'Fiscal.Api.Endpoints.NfseMunicipiosController.Situacao (Fiscal.Api)'
+[17:46:55 INF] [ba1279223a1d45fbb4ef0b1ecf8de36f] HTTP GET /api/fiscal/nfse/municipios/3525300/situacao responded 200 in 16.6120 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/nfse/municipios/3525300/situacao - 200 null application/json; charset=utf-8 18.677ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ping - null null
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] Executing endpoint 'Fiscal.Api.Endpoints.FiscalController.Ping (Fiscal.Api)'
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] Route matched with {action = "Ping", controller = "Fiscal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ping(System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.FiscalController (Fiscal.Api).
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] Executing OkObjectResult, writing value of type 'Fiscal.Api.Endpoints.FiscalController+PingResponse'.
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] Executed action Fiscal.Api.Endpoints.FiscalController.Ping (Fiscal.Api) in 11.3787ms
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] Executed endpoint 'Fiscal.Api.Endpoints.FiscalController.Ping (Fiscal.Api)'
+[17:46:55 INF] [bd89ecd8ddf847da855f9a007b85d7a8] HTTP GET /api/fiscal/ping responded 200 in 22.4816 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ping - 200 null application/json; charset=utf-8 24.2323ms
+[17:46:55 INF] [] Executed DbCommand (3ms) [Parameters=[@tenantId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM audit_log AS a
+    WHERE a.tenant_id = @tenantId AND a.action = 'fiscal.ping' AND a.entity = 'FiscalPing')
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ping - null null
+[17:46:55 INF] [ad68cd50ef5d42979a641e3d1feebd29] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+Fiscal.Api.Auth.ModuleActiveRequirement
+[17:46:55 INF] [ad68cd50ef5d42979a641e3d1feebd29] AuthenticationScheme: Bearer was challenged.
+[17:46:55 INF] [ad68cd50ef5d42979a641e3d1feebd29] HTTP GET /api/fiscal/ping responded 401 in 3.8040 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ping - 401 null null 5.8359ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ping - null null
+[17:46:55 INF] [797af4fdb2db42a78606273fedf1b7d9] Authorization failed. These requirements were not met:
+Fiscal.Api.Auth.ModuleActiveRequirement
+[17:46:55 INF] [797af4fdb2db42a78606273fedf1b7d9] AuthenticationScheme: Bearer was forbidden.
+[17:46:55 INF] [797af4fdb2db42a78606273fedf1b7d9] HTTP GET /api/fiscal/ping responded 403 in 2.2754 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ping - 403 null null 4.5997ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/health - null null
+[17:46:55 INF] [cb8bf10ba48a42c79dd3a01ada09f14b] Executing endpoint 'Health checks'
+[17:46:55 DBG] [cb8bf10ba48a42c79dd3a01ada09f14b] Running health checks
+[17:46:55 DBG] [cb8bf10ba48a42c79dd3a01ada09f14b] Running health check fiscal-postgres
+[17:46:55 DBG] [cb8bf10ba48a42c79dd3a01ada09f14b] Health check fiscal-postgres with status Healthy completed after 1.934ms with message 'null'
+[17:46:55 DBG] [cb8bf10ba48a42c79dd3a01ada09f14b] Health check processing with combined status Healthy completed after 3.2321ms
+[17:46:55 INF] [cb8bf10ba48a42c79dd3a01ada09f14b] Executed endpoint 'Health checks'
+[17:46:55 INF] [cb8bf10ba48a42c79dd3a01ada09f14b] HTTP GET /api/health responded 200 in 6.4458 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/health - 200 null text/plain 8.2743ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ping - null null
+[17:46:55 INF] [10dd95a18c41413b83a49e561804c583] Authorization failed. These requirements were not met:
+Fiscal.Api.Auth.ModuleActiveRequirement
+[17:46:55 INF] [10dd95a18c41413b83a49e561804c583] AuthenticationScheme: Bearer was forbidden.
+[17:46:55 INF] [10dd95a18c41413b83a49e561804c583] HTTP GET /api/fiscal/ping responded 403 in 2.0123 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ping - 403 null null 4.245ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ping - null null
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] Executing endpoint 'Fiscal.Api.Endpoints.FiscalController.Ping (Fiscal.Api)'
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] Route matched with {action = "Ping", controller = "Fiscal"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Ping(System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.FiscalController (Fiscal.Api).
+  Passed Fiscal.Tests.FiscalNfseTests.Situacao_Desconhecido_TrazMensagemOrientativa [294 ms]
+  Passed Fiscal.Tests.FiscalNfseTests.TenantAdmin_Importar_DeveRetornar403 [22 ms]
+  Passed Fiscal.Tests.FiscalNfseTests.Importar_PreservaOverrideManual_E_RelataErros [323 ms]
+  Passed Fiscal.Tests.FiscalNfseTests.Importar_ArquivoVazio_DeveRetornar400 [21 ms]
+  Passed Fiscal.Tests.FiscalNfseTests.Seed_DeveConterSaoPaulo_E_Jau [43 ms]
+  Passed Fiscal.Tests.FiscalGateTests.Ping_ComModulo_DeveRetornar200_E_Auditar [50 ms]
+  Passed Fiscal.Tests.FiscalGateTests.Ping_SemToken_DeveRetornar401 [8 ms]
+  Passed Fiscal.Tests.FiscalGateTests.Ping_SuperAdminSemTenant_DeveRetornar403 [8 ms]
+  Passed Fiscal.Tests.FiscalGateTests.Health_DeveRetornar200 [10 ms]
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] Executing OkObjectResult, writing value of type 'Fiscal.Api.Endpoints.FiscalController+PingResponse'.
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] Executed action Fiscal.Api.Endpoints.FiscalController.Ping (Fiscal.Api) in 5.262ms
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] Executed endpoint 'Fiscal.Api.Endpoints.FiscalController.Ping (Fiscal.Api)'
+[17:46:55 INF] [92d0aa045022441996801b9ce0aad595] HTTP GET /api/fiscal/ping responded 200 in 9.2656 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ping - 200 null application/json; charset=utf-8 11.139ms
+[17:46:55 INF] [] Executed DbCommand (3ms) [Parameters=[@tenantB='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM audit_log AS a
+    WHERE a.tenant_id = @tenantB AND a.entity_id = 'e684fa95-45bc-49ac-be4a-724ce27c01f8')
+[17:46:55 INF] [] Executed DbCommand (2ms) [Parameters=[@tenantA='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM audit_log AS a
+WHERE a.tenant_id = @tenantA
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (3ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (3ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (2ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 243.6471ms
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [7d2c45b2bb7248b1ab293b0a41c29fb0] HTTP POST /api/fiscal/emitentes responded 400 in 253.6633 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 255.336ms
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[xUnit.net 00:00:05.31]     Fiscal.Tests.FiscalEmitenteTests.TenantAdmin_CriaEmitente_E_IsolamentoEntreTenants [FAIL]
+[xUnit.net 00:00:05.31]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:05.31]       Expected: Created
+[xUnit.net 00:00:05.31]       Actual:   BadRequest
+[xUnit.net 00:00:05.31]       Stack Trace:
+[xUnit.net 00:00:05.31]         /workspace/tests/Fiscal.Tests/FiscalEmitenteTests.cs(63,0): at Fiscal.Tests.FiscalEmitenteTests.TenantAdmin_CriaEmitente_E_IsolamentoEntreTenants()
+[xUnit.net 00:00:05.31]         --- End of stack trace from previous location ---
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (1ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (1ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (2ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 29.1734ms
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [44fa3dfae39c41f19abb94414f745587] HTTP POST /api/fiscal/emitentes responded 400 in 32.5607 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 34.6815ms
+[17:46:55 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/prontidao?tipo=55&ambiente=1 - null null
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Prontidao (Fiscal.Api)'
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] Route matched with {action = "Prontidao", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Prontidao(System.Guid, Int32, Int32, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] Executed DbCommand (3ms) [Parameters=[@tenantId='?' (DbType = Guid), @From='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.id = @From
+LIMIT 1
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] Executed action Fiscal.Api.Endpoints.EmitentesController.Prontidao (Fiscal.Api) in 24.6432ms
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Prontidao (Fiscal.Api)'
+[17:46:55 INF] [04e41b0f44374e4d9f4ee383ea4fe606] HTTP GET /api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/prontidao responded 400 in 32.7628 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/prontidao?tipo=55&ambiente=1 - 400 null application/problem+json; charset=utf-8 34.7685ms
+[xUnit.net 00:00:05.38]       System.Net.Http.HttpRequestException : Response status code does not indicate success: 400 (Bad Request).
+[xUnit.net 00:00:05.38]       Stack Trace:
+[xUnit.net 00:00:05.38]            at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+[xUnit.net 00:00:05.38]            at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+[xUnit.net 00:00:05.38]         /workspace/tests/Fiscal.Tests/FiscalEmitenteTests.cs(126,0): at Fiscal.Tests.FiscalEmitenteTests.Prontidao_ApontaCertificado_E_Conexao_Pendentes()
+[xUnit.net 00:00:05.38]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.38]     Fiscal.Tests.FiscalEmitenteTests.Prontidao_ApontaCertificado_E_Conexao_Pendentes [FAIL]
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/concessoes - application/json; charset=utf-8 109
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executing endpoint 'Fiscal.Api.Endpoints.ConcessoesController.Grant (Fiscal.Api)'
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Route matched with {action = "Grant", controller = "Concessoes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Grant(Fiscal.Application.Emitentes.GrantConcessaoCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.ConcessoesController (Fiscal.Api).
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid), @userId='?' (DbType = Guid), @papel='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.branch_id, c.created_at_utc, c.deleted_at_utc, c.is_active, c.papel, c.tenant_id, c.user_id
+FROM concessoes_unidade AS c
+WHERE c.is_active AND c.tenant_id = @tenantId AND c.branch_id = @branchId AND c.user_id = @userId AND c.papel = @papel
+LIMIT 1
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = Int32), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO concessoes_unidade (id, branch_id, created_at_utc, deleted_at_utc, papel, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING is_active;
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executing CreatedAtActionResult, writing value of type 'Fiscal.Application.Emitentes.ConcessaoDto'.
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executed action Fiscal.Api.Endpoints.ConcessoesController.Grant (Fiscal.Api) in 71.9199ms
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] Executed endpoint 'Fiscal.Api.Endpoints.ConcessoesController.Grant (Fiscal.Api)'
+[17:46:55 INF] [ee6d713c50704068ac26d86bd2f50908] HTTP POST /api/fiscal/concessoes responded 201 in 79.6321 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/concessoes - 201 null application/json; charset=utf-8 81.2847ms
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid), @userId='?' (DbType = Guid), @papel='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.branch_id, c.created_at_utc, c.deleted_at_utc, c.is_active, c.papel, c.tenant_id, c.user_id
+FROM concessoes_unidade AS c
+WHERE c.is_active AND c.tenant_id = @tenantId AND c.branch_id = @branchId AND c.user_id = @userId AND c.papel = @papel
+LIMIT 1
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (1ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (2ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 31.0226ms
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [276b8560e1b940e1a58fc207e6138be0] HTTP POST /api/fiscal/emitentes responded 400 in 33.6562 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 35.3413ms
+[xUnit.net 00:00:05.51]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:05.51]     Fiscal.Tests.FiscalEmitenteTests.Manager_ComConcessao_CriaEmitente [FAIL]
+[xUnit.net 00:00:05.51]       Expected: Created
+[xUnit.net 00:00:05.51]       Actual:   BadRequest
+[xUnit.net 00:00:05.51]       Stack Trace:
+[xUnit.net 00:00:05.51]         /workspace/tests/Fiscal.Tests/FiscalEmitenteTests.cs(115,0): at Fiscal.Tests.FiscalEmitenteTests.Manager_ComConcessao_CriaEmitente()
+[xUnit.net 00:00:05.51]         --- End of stack trace from previous location ---
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (1ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (1ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (1ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 25.1017ms
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:55 INF] [84218d4a1862467bb5f2bedbd4721a90] HTTP POST /api/fiscal/emitentes responded 400 in 28.6057 ms
+[17:46:55 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 30.3476ms
+[17:46:55 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/ambientes/55/promover-producao - application/json; charset=utf-8 45
+[17:46:56 INF] [7c919ff50ff2469abfb40880345bfef2] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.PromoverProducao (Fiscal.Api)'
+[17:46:56 INF] [7c919ff50ff2469abfb40880345bfef2] Route matched with {action = "PromoverProducao", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PromoverProducao(System.Guid, Int32, PromoverBody, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [7c919ff50ff2469abfb40880345bfef2] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [7c919ff50ff2469abfb40880345bfef2] Executed action Fiscal.Api.Endpoints.EmitentesController.PromoverProducao (Fiscal.Api) in 5.5924ms
+[17:46:56 INF] [7c919ff50ff2469abfb40880345bfef2] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.PromoverProducao (Fiscal.Api)'
+[17:46:56 INF] [7c919ff50ff2469abfb40880345bfef2] HTTP POST /api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/ambientes/55/promover-producao responded 409 in 13.8067 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/ambientes/55/promover-producao - 409 null application/problem+json; charset=utf-8 16.088ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 453
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 5.8842ms
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [0d469099f6b44c958b75b729f5a35d16] HTTP POST /api/fiscal/emitentes responded 422 in 9.1020 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 422 null application/problem+json; charset=utf-8 10.8489ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[17:46:56 INF] [94bd43f1f7284fe2b8a7f9d4d27b60ca] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [94bd43f1f7284fe2b8a7f9d4d27b60ca] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [94bd43f1f7284fe2b8a7f9d4d27b60ca] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid), @userId='?' (DbType = Guid), @papel='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.branch_id, c.created_at_utc, c.deleted_at_utc, c.is_active, c.papel, c.tenant_id, c.user_id
+FROM concessoes_unidade AS c
+WHERE c.is_active AND c.tenant_id = @tenantId AND c.branch_id = @branchId AND c.user_id = @userId AND c.papel = @papel
+LIMIT 1
+[17:46:56 INF] [94bd43f1f7284fe2b8a7f9d4d27b60ca] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 5.1508ms
+[17:46:56 INF] [94bd43f1f7284fe2b8a7f9d4d27b60ca] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [94bd43f1f7284fe2b8a7f9d4d27b60ca] HTTP POST /api/fiscal/emitentes responded 403 in 15.5299 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 403 null application/json; charset=utf-8 17.7455ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (1ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (1ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (1ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (1ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 25.3905ms
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [64f903b030ee4055809634ca0e661cb6] HTTP POST /api/fiscal/emitentes responded 400 in 28.1587 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 29.6393ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/ambientes/55/promover-producao - application/json; charset=utf-8 31
+[17:46:56 INF] [08113edb95134ad6a21f763f83e6273c] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.PromoverProducao (Fiscal.Api)'
+[17:46:56 INF] [08113edb95134ad6a21f763f83e6273c] Route matched with {action = "PromoverProducao", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PromoverProducao(System.Guid, Int32, PromoverBody, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [08113edb95134ad6a21f763f83e6273c] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [08113edb95134ad6a21f763f83e6273c] Executed action Fiscal.Api.Endpoints.EmitentesController.PromoverProducao (Fiscal.Api) in 1.4208ms
+[17:46:56 INF] [08113edb95134ad6a21f763f83e6273c] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.PromoverProducao (Fiscal.Api)'
+[17:46:56 INF] [08113edb95134ad6a21f763f83e6273c] HTTP POST /api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/ambientes/55/promover-producao responded 400 in 3.7261 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes/00000000-0000-0000-0000-000000000000/ambientes/55/promover-producao - 400 null application/problem+json; charset=utf-8 4.9289ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 456
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+  Passed Fiscal.Tests.FiscalGateTests.Ping_SemModulo_DeveRetornar403 [7 ms]
+  Passed Fiscal.Tests.FiscalGateTests.Ping_TenantB_NaoEnxergaTrilhaDoTenantA [58 ms]
+  Failed Fiscal.Tests.FiscalEmitenteTests.TenantAdmin_CriaEmitente_E_IsolamentoEntreTenants [262 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   BadRequest
+  Stack Trace:
+     at Fiscal.Tests.FiscalEmitenteTests.TenantAdmin_CriaEmitente_E_IsolamentoEntreTenants() in /workspace/tests/Fiscal.Tests/FiscalEmitenteTests.cs:line 63
+--- End of stack trace from previous location ---
+  Failed Fiscal.Tests.FiscalEmitenteTests.Prontidao_ApontaCertificado_E_Conexao_Pendentes [74 ms]
+  Error Message:
+   System.Net.Http.HttpRequestException : Response status code does not indicate success: 400 (Bad Request).
+  Stack Trace:
+     at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+   at Fiscal.Tests.FiscalEmitenteTests.Prontidao_ApontaCertificado_E_Conexao_Pendentes() in /workspace/tests/Fiscal.Tests/FiscalEmitenteTests.cs:line 126
+--- End of stack trace from previous location ---
+  Failed Fiscal.Tests.FiscalEmitenteTests.Manager_ComConcessao_CriaEmitente [122 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   BadRequest
+  Stack Trace:
+     at Fiscal.Tests.FiscalEmitenteTests.Manager_ComConcessao_CriaEmitente() in /workspace/tests/Fiscal.Tests/FiscalEmitenteTests.cs:line 115
+--- End of stack trace from previous location ---
+  Passed Fiscal.Tests.FiscalEmitenteTests.PromoverProducao_SemFlag_DeveRetornar409 [50 ms]
+  Passed Fiscal.Tests.FiscalEmitenteTests.Emitente_CPF_DeveRetornar422 [13 ms]
+  Passed Fiscal.Tests.FiscalEmitenteTests.Manager_SemConcessao_Escrever_DeveRetornar403 [20 ms]
+  Passed Fiscal.Tests.FiscalEmitenteTests.PromoverProducao_TextoErrado_DeveRetornar400 [37 ms]
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] Executed DbCommand (3ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 9.3395ms
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [9481ffbd765a45b5b5030acc56593fe1] HTTP POST /api/fiscal/emitentes responded 400 in 12.8389 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 14.7725ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 347
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (1ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 29.518ms
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [85d0683453c8457fb26172f83b323618] HTTP POST /api/fiscal/emitentes responded 400 in 32.1855 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 33.8845ms
+[xUnit.net 00:00:05.69]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:05.69]     Fiscal.Tests.FiscalCertificadoTests.Upload_BaseDivergente_DeveRetornar400 [FAIL]
+[xUnit.net 00:00:05.69]       Expected: Created
+[xUnit.net 00:00:05.69]       Actual:   BadRequest
+[xUnit.net 00:00:05.69]       Stack Trace:
+[xUnit.net 00:00:05.69]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(81,0): at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj)
+[xUnit.net 00:00:05.69]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(136,0): at Fiscal.Tests.FiscalCertificadoTests.Upload_BaseDivergente_DeveRetornar400()
+[xUnit.net 00:00:05.69]         --- End of stack trace from previous location ---
+[17:46:56 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/certificados - null null
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Executing endpoint 'Fiscal.Api.Endpoints.CertificadosController.List (Fiscal.Api)'
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Route matched with {action = "List", controller = "Certificados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.CertificadosController (Fiscal.Api).
+[17:46:56 WRN] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Cofre fiscal com chave EF├èMERA (dev/teste): segredos n├úo sobrevivem a restart.
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.branch_id, c.cnpj_certificado, c.created_at_utc, c.enviado_por, c.key_id, c.not_after, c.not_before, c.pfx_cifrado, c.senha_cifrada, c.status, c.subject, c.tenant_id, c.thumbprint, c.tipo
+FROM certificados_digitais AS c
+WHERE c.tenant_id = @tenantId
+ORDER BY c.created_at_utc DESC
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Fiscal.Application.Certificados.CertificadoDto, Fiscal.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Executed action Fiscal.Api.Endpoints.CertificadosController.List (Fiscal.Api) in 20.2751ms
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] Executed endpoint 'Fiscal.Api.Endpoints.CertificadosController.List (Fiscal.Api)'
+[17:46:56 INF] [7f9a8c44097b43fb9b1fcc9719cdc6c1] HTTP GET /api/fiscal/certificados responded 200 in 28.2472 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/certificados - 200 null application/json; charset=utf-8 29.9769ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/certificados - multipart/form-data; boundary="e8d60db7-6487-4726-a0d0-d57e3eadbb62" 2816
+[17:46:56 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:56 INF] [b96fc25c88a94b6895032e39f31728e2] Executing endpoint 'Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api)'
+[17:46:56 INF] [b96fc25c88a94b6895032e39f31728e2] Route matched with {action = "Upload", controller = "Certificados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(Microsoft.AspNetCore.Http.IFormFile, System.String, System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.CertificadosController (Fiscal.Api).
+[17:46:56 WRN] [b96fc25c88a94b6895032e39f31728e2] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+[17:46:56 INF] [b96fc25c88a94b6895032e39f31728e2] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [b96fc25c88a94b6895032e39f31728e2] Executed action Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api) in 15.1414ms
+[17:46:56 INF] [b96fc25c88a94b6895032e39f31728e2] Executed endpoint 'Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api)'
+[17:46:56 INF] [b96fc25c88a94b6895032e39f31728e2] HTTP POST /api/fiscal/certificados responded 400 in 29.4217 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/certificados - 400 null application/problem+json; charset=utf-8 42.1159ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 347
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (3ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (2ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (2ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 34.5605ms
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [e3ee3dcf156942f399ea1c9afa600031] HTTP POST /api/fiscal/emitentes responded 400 in 42.4678 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 52.3612ms
+[xUnit.net 00:00:05.96]     Fiscal.Tests.FiscalCertificadoTests.Upload_Valido_SalvaSoMetadados [FAIL]
+[xUnit.net 00:00:05.96]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:05.96]       Expected: Created
+[xUnit.net 00:00:05.96]       Actual:   BadRequest
+[xUnit.net 00:00:05.96]       Stack Trace:
+[xUnit.net 00:00:05.96]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(81,0): at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj)
+[xUnit.net 00:00:05.96]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(92,0): at Fiscal.Tests.FiscalCertificadoTests.Upload_Valido_SalvaSoMetadados()
+[xUnit.net 00:00:05.96]         --- End of stack trace from previous location ---
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/certificados - multipart/form-data; boundary="3da54aff-32b0-4301-9629-683fcdc6fd0c" 2825
+[17:46:56 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:56 INF] [877cdc0e8ea64d9895f911eec7a2b282] Executing endpoint 'Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api)'
+[17:46:56 INF] [877cdc0e8ea64d9895f911eec7a2b282] Route matched with {action = "Upload", controller = "Certificados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(Microsoft.AspNetCore.Http.IFormFile, System.String, System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.CertificadosController (Fiscal.Api).
+[17:46:56 WRN] [877cdc0e8ea64d9895f911eec7a2b282] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+[17:46:56 INF] [877cdc0e8ea64d9895f911eec7a2b282] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [877cdc0e8ea64d9895f911eec7a2b282] Executed action Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api) in 13.9919ms
+[17:46:56 INF] [877cdc0e8ea64d9895f911eec7a2b282] Executed endpoint 'Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api)'
+[17:46:56 INF] [877cdc0e8ea64d9895f911eec7a2b282] HTTP POST /api/fiscal/certificados responded 400 in 17.1582 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/certificados - 400 null application/problem+json; charset=utf-8 19.4787ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/certificados - multipart/form-data; boundary="04a4cb7d-572f-44b6-8c06-4411f7bb37d0" 1230
+[17:46:56 WRN] [] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+[17:46:56 INF] [e2849b07cd6a49d7b4ddaca8b5180862] Executing endpoint 'Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api)'
+[17:46:56 INF] [e2849b07cd6a49d7b4ddaca8b5180862] Route matched with {action = "Upload", controller = "Certificados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(Microsoft.AspNetCore.Http.IFormFile, System.String, System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.CertificadosController (Fiscal.Api).
+[17:46:56 WRN] [e2849b07cd6a49d7b4ddaca8b5180862] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+[17:46:56 INF] [e2849b07cd6a49d7b4ddaca8b5180862] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [e2849b07cd6a49d7b4ddaca8b5180862] Executed action Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api) in 2.6113ms
+[17:46:56 INF] [e2849b07cd6a49d7b4ddaca8b5180862] Executed endpoint 'Fiscal.Api.Endpoints.CertificadosController.Upload (Fiscal.Api)'
+[17:46:56 INF] [e2849b07cd6a49d7b4ddaca8b5180862] HTTP POST /api/fiscal/certificados responded 400 in 5.5813 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/certificados - 400 null application/problem+json; charset=utf-8 8.1143ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 347
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (1ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (1ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 23.6941ms
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [26f1e5d977464fd28a4a99c9a360fd10] HTTP POST /api/fiscal/emitentes responded 400 in 26.6880 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 28.148ms
+[xUnit.net 00:00:06.18]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:06.18]       Expected: Created
+[xUnit.net 00:00:06.18]       Actual:   BadRequest
+[xUnit.net 00:00:06.18]       Stack Trace:
+[xUnit.net 00:00:06.18]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(81,0): at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj)
+[xUnit.net 00:00:06.18]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(148,0): at Fiscal.Tests.FiscalCertificadoTests.Upload_Novo_NoMesmoEscopo_RevogaAnterior_E_Isolamento()
+[xUnit.net 00:00:06.18]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:06.18]     Fiscal.Tests.FiscalCertificadoTests.Upload_Novo_NoMesmoEscopo_RevogaAnterior_E_Isolamento [FAIL]
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/emitentes - application/json; charset=utf-8 347
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executing endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Route matched with {action = "Create", controller = "Emitentes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Emitentes.CreateEmitenteCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.EmitentesController (Fiscal.Api).
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (2ms) [Parameters=[@tenantId='?' (DbType = Guid), @branchId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT e.id, e.branch_id, e.cnae, e.created_at_utc, e.crt, e.deleted_at_utc, e.email, e.fantasia, e.inscricao_estadual, e.inscricao_municipal, e.is_active, e.razao_social, e.telefone, e.tenant_id, e.cnpj_alfanumerico, e.cnpj, e.end_cidade, e.end_ibge, e.end_complemento, e.end_bairro, e.end_numero, e.end_cep, e.end_uf, e.end_logradouro
+FROM emitentes_fiscais AS e
+WHERE e.is_active AND e.tenant_id = @tenantId AND e.branch_id = @branchId
+LIMIT 1
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (1ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (1ms) [Parameters=[@Norm='?'], CommandType='Text', CommandTimeout='30']
+SELECT m.id, m.codigo_ibge, m.deleted_at_utc, m.is_active, m.nome, m.uf
+FROM municipios AS m
+WHERE m.is_active AND m.codigo_ibge = @Norm
+LIMIT 1
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Binary), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Guid), @p11='?', @p12='?' (DbType = Int32), @p13='?' (DbType = Guid), @p14='?' (DbType = Int32), @p15='?', @p16='?' (DbType = Binary), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Guid), @p24='?', @p25='?' (DbType = Int32), @p26='?' (DbType = Guid), @p27='?' (DbType = Int32), @p28='?', @p29='?' (DbType = Binary), @p30='?', @p31='?' (DbType = DateTime), @p32='?' (DbType = Guid), @p33='?' (DbType = Boolean), @p34='?' (DbType = Boolean), @p35='?' (DbType = Int32), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = Int32), @p39='?' (DbType = Guid), @p40='?' (DbType = Int32), @p41='?', @p42='?' (DbType = Binary), @p43='?', @p44='?' (DbType = DateTime), @p45='?' (DbType = Guid), @p46='?' (DbType = Boolean), @p47='?' (DbType = Boolean), @p48='?' (DbType = Int32), @p49='?' (DbType = Guid), @p50='?', @p51='?' (DbType = Int32), @p52='?' (DbType = Guid), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Binary), @p56='?', @p57='?' (DbType = DateTime), @p58='?' (DbType = Guid), @p59='?' (DbType = Boolean), @p60='?' (DbType = Boolean), @p61='?' (DbType = Int32), @p62='?' (DbType = Guid), @p63='?', @p64='?' (DbType = Int32), @p65='?' (DbType = Guid), @p66='?' (DbType = Int32), @p67='?', @p68='?' (DbType = Binary), @p69='?', @p70='?' (DbType = DateTime), @p71='?' (DbType = Guid), @p72='?' (DbType = Boolean), @p73='?' (DbType = Boolean), @p74='?' (DbType = Int32), @p75='?' (DbType = Guid), @p76='?', @p77='?' (DbType = Int32), @p78='?' (DbType = Guid), @p79='?' (DbType = Guid), @p80='?', @p81='?' (DbType = DateTime), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime), @p84='?', @p85='?', @p86='?', @p87='?', @p88='?', @p89='?', @p90='?' (DbType = Guid), @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?', @p98='?', @p99='?', @p100='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO configuracoes_documento (id, ambiente, csc_id, csc_token_cifrado, csc_token_key_id, deleted_at_utc, emitente_id, habilitado, is_active, modo_integracao, referencia_certificado, serie, tipo)
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77);
+INSERT INTO emitentes_fiscais (id, branch_id, cnae, created_at_utc, crt, deleted_at_utc, email, fantasia, inscricao_estadual, inscricao_municipal, razao_social, telefone, tenant_id, cnpj_alfanumerico, cnpj, end_cidade, end_ibge, end_complemento, end_bairro, end_numero, end_cep, end_uf, end_logradouro)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100)
+RETURNING is_active;
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM configuracoes_documento AS c
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (1ms) [Parameters=[@emitente_Id='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT c.id, c.ambiente, c.csc_id, c.csc_token_cifrado, c.csc_token_key_id, c.deleted_at_utc, c.emitente_id, c.habilitado, c.is_active, c.modo_integracao, c.referencia_certificado, c.serie, c.tipo
+FROM configuracoes_documento AS c
+WHERE c.emitente_id = @emitente_Id
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed action Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api) in 21.3941ms
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] Executed endpoint 'Fiscal.Api.Endpoints.EmitentesController.Create (Fiscal.Api)'
+[17:46:56 INF] [61d37d40b0f043aea426756deb7796e3] HTTP POST /api/fiscal/emitentes responded 400 in 24.1049 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/emitentes - 400 null application/problem+json; charset=utf-8 25.5205ms
+[xUnit.net 00:00:06.21]     Fiscal.Tests.FiscalCertificadoTests.CscToken_WriteOnly_NuncaDevolvido [FAIL]
+[xUnit.net 00:00:06.21]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:06.21]       Expected: Created
+[xUnit.net 00:00:06.21]       Actual:   BadRequest
+[xUnit.net 00:00:06.21]       Stack Trace:
+[xUnit.net 00:00:06.21]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(81,0): at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj)
+[xUnit.net 00:00:06.21]         /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs(182,0): at Fiscal.Tests.FiscalCertificadoTests.CscToken_WriteOnly_NuncaDevolvido()
+[xUnit.net 00:00:06.21]         --- End of stack trace from previous location ---
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints - application/json; charset=utf-8 189
+[17:46:56 INF] [9252831f94304f61af92f591150c42bb] Executing endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api)'
+[17:46:56 INF] [9252831f94304f61af92f591150c42bb] Route matched with {action = "Create", controller = "SefazEndpoints"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Catalogo.CreateEndpointCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.SefazEndpointsController (Fiscal.Api).
+[17:46:56 INF] [9252831f94304f61af92f591150c42bb] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [9252831f94304f61af92f591150c42bb] Executed action Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api) in 28.3055ms
+[17:46:56 INF] [9252831f94304f61af92f591150c42bb] Executed endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api)'
+[17:46:56 INF] [9252831f94304f61af92f591150c42bb] HTTP POST /api/fiscal/sefaz-endpoints responded 400 in 35.9363 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints - 400 null application/problem+json; charset=utf-8 38.7878ms
+  Passed Fiscal.Tests.FiscalEmitenteTests.Emitente_CnpjInvalido_DeveRetornar400 [24 ms]
+  Failed Fiscal.Tests.FiscalCertificadoTests.Upload_BaseDivergente_DeveRetornar400 [39 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   BadRequest
+  Stack Trace:
+     at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj) in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 81
+   at Fiscal.Tests.FiscalCertificadoTests.Upload_BaseDivergente_DeveRetornar400() in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 136
+--- End of stack trace from previous location ---
+  Passed Fiscal.Tests.FiscalCertificadoTests.Logs_NaoContemSenha [33 ms]
+  Passed Fiscal.Tests.FiscalCertificadoTests.Upload_SenhaErrada_DeveRetornar400_SemVazar [172 ms]
+  Failed Fiscal.Tests.FiscalCertificadoTests.Upload_Valido_SalvaSoMetadados [57 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   BadRequest
+  Stack Trace:
+     at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj) in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 81
+   at Fiscal.Tests.FiscalCertificadoTests.Upload_Valido_SalvaSoMetadados() in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 92
+--- End of stack trace from previous location ---
+  Passed Fiscal.Tests.FiscalCertificadoTests.Upload_Vencido_E_SemChavePrivada_Recusados [188 ms]
+  Failed Fiscal.Tests.FiscalCertificadoTests.Upload_Novo_NoMesmoEscopo_RevogaAnterior_E_Isolamento [31 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   BadRequest
+  Stack Trace:
+     at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj) in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 81
+   at Fiscal.Tests.FiscalCertificadoTests.Upload_Novo_NoMesmoEscopo_RevogaAnterior_E_Isolamento() in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 148
+--- End of stack trace from previous location ---
+  Failed Fiscal.Tests.FiscalCertificadoTests.CscToken_WriteOnly_NuncaDevolvido [28 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   BadRequest
+  Stack Trace:
+     at Fiscal.Tests.FiscalCertificadoTests.CriarEmitenteAsync(HttpClient client, Guid branch, String cnpj) in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 81
+   at Fiscal.Tests.FiscalCertificadoTests.CscToken_WriteOnly_NuncaDevolvido() in /workspace/tests/Fiscal.Tests/FiscalCertificadoTests.cs:line 182
+--- End of stack trace from previous location ---
+  Passed Fiscal.Tests.FiscalCatalogTests.SuperAdmin_CriarEndpointHostInvalido_DeveRetornar400 [42 ms]
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/ufs - application/json; charset=utf-8 93
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] Executing endpoint 'Fiscal.Api.Endpoints.UfsFiscaisController.Create (Fiscal.Api)'
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] Route matched with {action = "Create", controller = "UfsFiscais"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Catalogo.CreateUfCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.UfsFiscaisController (Fiscal.Api).
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] Executed action Fiscal.Api.Endpoints.UfsFiscaisController.Create (Fiscal.Api) in 28.5201ms
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] Executed endpoint 'Fiscal.Api.Endpoints.UfsFiscaisController.Create (Fiscal.Api)'
+[17:46:56 INF] [7d650e7098c1419bab020b8bc53c9998] HTTP POST /api/fiscal/ufs responded 400 in 36.7489 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/ufs - 400 null application/problem+json; charset=utf-8 39.8675ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/ufs - application/json; charset=utf-8 90
+[17:46:56 INF] [5a2cefaacba64a958f4735b0d326b087] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (SuperAdmin)
+[17:46:56 INF] [5a2cefaacba64a958f4735b0d326b087] AuthenticationScheme: Bearer was forbidden.
+[17:46:56 INF] [5a2cefaacba64a958f4735b0d326b087] HTTP POST /api/fiscal/ufs responded 403 in 2.5561 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/ufs - 403 null null 4.8459ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints - application/json; charset=utf-8 196
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executing endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api)'
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Route matched with {action = "Create", controller = "SefazEndpoints"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Catalogo.CreateEndpointCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.SefazEndpointsController (Fiscal.Api).
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?', @modelo='?' (DbType = Int32), @servico='?' (DbType = Int32), @ambiente='?' (DbType = Int32), @Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT s.id, s.ambiente, s.autorizador, s.created_at_utc, s.deleted_at_utc, s.fonte_url, s.is_active, s.modelo, s.servico, s.url, s.verificado, s.verificado_em, s.versao_servico, s.vigencia_fim, s.vigencia_inicio
+FROM sefaz_endpoints AS s
+WHERE s.is_active AND s.autorizador = @ToUpperInvariant AND s.modelo = @modelo AND s.servico = @servico AND s.ambiente = @ambiente AND s.versao_servico = @Trim
+LIMIT 1
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?', @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = DateTime), @p12='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO sefaz_endpoints (id, ambiente, autorizador, created_at_utc, deleted_at_utc, fonte_url, modelo, servico, url, verificado_em, versao_servico, vigencia_fim, vigencia_inicio)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING is_active, verificado;
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executing CreatedAtActionResult, writing value of type 'Fiscal.Application.Catalogo.SefazEndpointDto'.
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executed action Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api) in 32.7671ms
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] Executed endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api)'
+[17:46:56 INF] [84f2e2b05f534d8098abdbfc0df8071d] HTTP POST /api/fiscal/sefaz-endpoints responded 201 in 36.7365 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints - 201 null application/json; charset=utf-8 39.4596ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints - application/json; charset=utf-8 196
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] Executing endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api)'
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] Route matched with {action = "Create", controller = "SefazEndpoints"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Fiscal.Application.Catalogo.CreateEndpointCommand, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.SefazEndpointsController (Fiscal.Api).
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?', @modelo='?' (DbType = Int32), @servico='?' (DbType = Int32), @ambiente='?' (DbType = Int32), @Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT s.id, s.ambiente, s.autorizador, s.created_at_utc, s.deleted_at_utc, s.fonte_url, s.is_active, s.modelo, s.servico, s.url, s.verificado, s.verificado_em, s.versao_servico, s.vigencia_fim, s.vigencia_inicio
+FROM sefaz_endpoints AS s
+WHERE s.is_active AND s.autorizador = @ToUpperInvariant AND s.modelo = @modelo AND s.servico = @servico AND s.ambiente = @ambiente AND s.versao_servico = @Trim
+LIMIT 1
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] Executed action Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api) in 12.0763ms
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] Executed endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Create (Fiscal.Api)'
+[17:46:56 INF] [4c29fa4f1f30485591bab41fc9615858] HTTP POST /api/fiscal/sefaz-endpoints responded 400 in 15.4007 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints - 400 null application/problem+json; charset=utf-8 16.8236ms
+[17:46:56 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ufs/SP/ambientes - null null
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executing endpoint 'Fiscal.Api.Endpoints.UfsFiscaisController.GetAmbientes (Fiscal.Api)'
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Route matched with {action = "GetAmbientes", controller = "UfsFiscais"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAmbientes(System.String, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.UfsFiscaisController (Fiscal.Api).
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active AND u.sigla = @ToUpperInvariant
+LIMIT 1
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT s.id, s.ambiente, s.autorizador, s.created_at_utc, s.deleted_at_utc, s.fonte_url, s.is_active, s.modelo, s.servico, s.url, s.verificado, s.verificado_em, s.versao_servico, s.vigencia_fim, s.vigencia_inicio
+FROM sefaz_endpoints AS s
+WHERE s.is_active AND s.autorizador = @ToUpperInvariant
+ORDER BY s.modelo, s.ambiente, s.servico
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?'], CommandType='Text', CommandTimeout='30']
+SELECT s.id, s.ambiente, s.autorizador, s.created_at_utc, s.deleted_at_utc, s.fonte_url, s.is_active, s.modelo, s.servico, s.url, s.verificado, s.verificado_em, s.versao_servico, s.vigencia_fim, s.vigencia_inicio
+FROM sefaz_endpoints AS s
+WHERE s.is_active AND s.autorizador = @ToUpperInvariant
+ORDER BY s.modelo, s.ambiente, s.servico
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executing OkObjectResult, writing value of type 'Fiscal.Application.Catalogo.UfAmbientesDto'.
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executed action Fiscal.Api.Endpoints.UfsFiscaisController.GetAmbientes (Fiscal.Api) in 32.0883ms
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] Executed endpoint 'Fiscal.Api.Endpoints.UfsFiscaisController.GetAmbientes (Fiscal.Api)'
+[17:46:56 INF] [cc5c6bfe351e468292de4b8305a75e19] HTTP GET /api/fiscal/ufs/SP/ambientes responded 200 in 40.8995 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ufs/SP/ambientes - 200 null application/json; charset=utf-8 43.3311ms
+[17:46:56 INF] [] Request starting HTTP/1.1 GET http://localhost/api/fiscal/ufs - null null
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] Executing endpoint 'Fiscal.Api.Endpoints.UfsFiscaisController.List (Fiscal.Api)'
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] Route matched with {action = "List", controller = "UfsFiscais"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List(System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.UfsFiscaisController (Fiscal.Api).
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT u.id, u.autorizador_nfce, u.autorizador_nfe, u.codigo_ibge, u.deleted_at_utc, u.is_active, u.nome, u.sigla
+FROM ufs_fiscais AS u
+WHERE u.is_active
+ORDER BY u.sigla
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Fiscal.Application.Catalogo.UfFiscalDto, Fiscal.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] Executed action Fiscal.Api.Endpoints.UfsFiscaisController.List (Fiscal.Api) in 16.4621ms
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] Executed endpoint 'Fiscal.Api.Endpoints.UfsFiscaisController.List (Fiscal.Api)'
+[17:46:56 INF] [4416c86c358c4f36938c1fd5871d22e3] HTTP GET /api/fiscal/ufs responded 200 in 24.7070 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 GET http://localhost/api/fiscal/ufs - 200 null application/json; charset=utf-8 26.2931ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints/importar - application/json; charset=utf-8 374
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executing endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Import (Fiscal.Api)'
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Route matched with {action = "Import", controller = "SefazEndpoints"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Import(Fiscal.Application.Catalogo.SefazImportRequest, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.SefazEndpointsController (Fiscal.Api).
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executed DbCommand (2ms) [Parameters=[@ToUpperInvariant='?', @modelo='?' (DbType = Int32), @servico='?' (DbType = Int32), @ambiente='?' (DbType = Int32), @Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT s.id, s.ambiente, s.autorizador, s.created_at_utc, s.deleted_at_utc, s.fonte_url, s.is_active, s.modelo, s.servico, s.url, s.verificado, s.verificado_em, s.versao_servico, s.vigencia_fim, s.vigencia_inicio
+FROM sefaz_endpoints AS s
+WHERE s.is_active AND s.autorizador = @ToUpperInvariant AND s.modelo = @modelo AND s.servico = @servico AND s.ambiente = @ambiente AND s.versao_servico = @Trim
+LIMIT 1
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?', @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTime), @p11='?', @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO sefaz_endpoints (id, ambiente, autorizador, created_at_utc, deleted_at_utc, fonte_url, modelo, servico, url, verificado, verificado_em, versao_servico, vigencia_fim, vigencia_inicio)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13)
+RETURNING is_active;
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executing OkObjectResult, writing value of type 'Fiscal.Application.Catalogo.SefazImportReport'.
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executed action Fiscal.Api.Endpoints.SefazEndpointsController.Import (Fiscal.Api) in 27.8496ms
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] Executed endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Import (Fiscal.Api)'
+[17:46:56 INF] [2a0cdceb7a3b498d88e00e218a6f9e8f] HTTP POST /api/fiscal/sefaz-endpoints/importar responded 200 in 37.3341 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints/importar - 200 null application/json; charset=utf-8 39.6012ms
+[17:46:56 INF] [] Request starting HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints/importar - application/json; charset=utf-8 374
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Executing endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Import (Fiscal.Api)'
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Route matched with {action = "Import", controller = "SefazEndpoints"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Import(Fiscal.Application.Catalogo.SefazImportRequest, System.Threading.CancellationToken) on controller Fiscal.Api.Endpoints.SefazEndpointsController (Fiscal.Api).
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Executed DbCommand (3ms) [Parameters=[@ToUpperInvariant='?', @modelo='?' (DbType = Int32), @servico='?' (DbType = Int32), @ambiente='?' (DbType = Int32), @Trim='?'], CommandType='Text', CommandTimeout='30']
+SELECT s.id, s.ambiente, s.autorizador, s.created_at_utc, s.deleted_at_utc, s.fonte_url, s.is_active, s.modelo, s.servico, s.url, s.verificado, s.verificado_em, s.versao_servico, s.vigencia_fim, s.vigencia_inicio
+FROM sefaz_endpoints AS s
+WHERE s.is_active AND s.autorizador = @ToUpperInvariant AND s.modelo = @modelo AND s.servico = @servico AND s.ambiente = @ambiente AND s.versao_servico = @Trim
+LIMIT 1
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = Guid), @p6='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+INSERT INTO audit_log (id, action, entity, entity_id, occurred_at_utc, tenant_id, user_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Executing OkObjectResult, writing value of type 'Fiscal.Application.Catalogo.SefazImportReport'.
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Executed action Fiscal.Api.Endpoints.SefazEndpointsController.Import (Fiscal.Api) in 12.6466ms
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] Executed endpoint 'Fiscal.Api.Endpoints.SefazEndpointsController.Import (Fiscal.Api)'
+[17:46:56 INF] [869bb61f06b24e6f98f33c9a7774e8ab] HTTP POST /api/fiscal/sefaz-endpoints/importar responded 200 in 15.7618 ms
+[17:46:56 INF] [] Request finished HTTP/1.1 POST http://localhost/api/fiscal/sefaz-endpoints/importar - 200 null application/json; charset=utf-8 17.8586ms
+[17:46:56 DBG] [] Hosting stopping
+[17:46:56 INF] [] Application is shutting down...
+[17:46:56 DBG] [] Hosting stopping
+[17:46:56 DBG] [] Hosting stopped
+[17:46:56 DBG] [] Hosting stopped
+[testcontainers.org 00:00:06.30] Stop Docker container 230ea04fb630
+[xUnit.net 00:00:06.85]   Finished:    Fiscal.Tests
+  Passed Fiscal.Tests.FiscalCatalogTests.SuperAdmin_CriarUfDuplicada_DeveRetornar400 [44 ms]
+  Passed Fiscal.Tests.FiscalCatalogTests.TenantAdmin_EscreverUf_DeveRetornar403 [8 ms]
+  Passed Fiscal.Tests.FiscalCatalogTests.SuperAdmin_CriarEndpointDuplicado_DeveRetornar400 [59 ms]
+  Passed Fiscal.Tests.FiscalCatalogTests.Ambientes_SP_HomologacaoComEndpoints_ProducaoVazia [52 ms]
+  Passed Fiscal.Tests.FiscalCatalogTests.Seed_DeveConter27UFs_E_SP_ComCuf35 [30 ms]
+  Passed Fiscal.Tests.FiscalCatalogTests.Importacao_Idempotente_ComLinhaRejeitada [65 ms]
+
+Total tests: 33
+Test Run Failed.
+     Passed: 26
+     Failed: 7
+ Total time: 7.3712 Seconds

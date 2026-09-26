@@ -1,0 +1,14 @@
+  Determining projects to restore...
+  Restored /workspace/src/Fiscal.Domain/Fiscal.Domain.csproj (in 93 ms).
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Restored /workspace/src/Fiscal.Infrastructure/Fiscal.Infrastructure.csproj (in 641 ms).
+  Restored /workspace/src/Fiscal.Application/Fiscal.Application.csproj (in 640 ms).
+  Restored /workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj (in 672 ms).
+  Restored /workspace/src/Fiscal.Api/Fiscal.Api.csproj (in 682 ms).
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+/workspace/tests/Fiscal.Tests/Fiscal.Tests.csproj : warning NU1903: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Fiscal.Domain -> /workspace/src/Fiscal.Domain/bin/Release/net10.0/Fiscal.Domain.dll
+  Fiscal.Application -> /workspace/src/Fiscal.Application/bin/Release/net10.0/Fiscal.Application.dll
+/workspace/src/Fiscal.Infrastructure/Emitentes/EmitenteFiscalService.cs(72,53): error CS1061: 'DbSet<ConfiguracaoDocumento>' does not contain a definition for 'IgnoreQueryFilters' and no accessible extension method 'IgnoreQueryFilters' accepting a first argument of type 'DbSet<ConfiguracaoDocumento>' could be found (are you missing a using directive or an assembly reference?) [/workspace/src/Fiscal.Infrastructure/Fiscal.Infrastructure.csproj]
+/workspace/src/Fiscal.Infrastructure/Emitentes/EmitenteFiscalService.cs(73,52): error CS1061: 'DbSet<ConfiguracaoDocumento>' does not contain a definition for 'IgnoreQueryFilters' and no accessible extension method 'IgnoreQueryFilters' accepting a first argument of type 'DbSet<ConfiguracaoDocumento>' could be found (are you missing a using directive or an assembly reference?) [/workspace/src/Fiscal.Infrastructure/Fiscal.Infrastructure.csproj]
