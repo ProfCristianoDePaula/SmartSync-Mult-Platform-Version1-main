@@ -34,3 +34,12 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       Identity__BaseUrl: ${IDENTITY_BASE_URL:-http://api:8080}
+
+  fiscal-postgres:
+    ports:
+      - "${FISCAL_POSTGRES_PORT:-5434}:5432"
+
+  fiscal-api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Identity__BaseUrl: ${IDENTITY_BASE_URL:-http://api:8080}

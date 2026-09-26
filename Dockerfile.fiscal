@@ -1,0 +1,37 @@
+# ---------- Stage 1: build ----------
+# Mesma receita multi-stage do Identity/Estoque: build → runtime não-root.
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+
+# Cache de camadas: restaura só os csproj primeiro.
+COPY ["Fiscal.slnx", "./"]
+COPY ["src/Fiscal.Api/Fiscal.Api.csproj", "src/Fiscal.Api/"]
+COPY ["src/Fiscal.Application/Fiscal.Application.csproj", "src/Fiscal.Application/"]
+COPY ["src/Fiscal.Domain/Fiscal.Domain.csproj", "src/Fiscal.Domain/"]
+COPY ["src/Fiscal.Infrastructure/Fiscal.Infrastructure.csproj", "src/Fiscal.Infrastructure/"]
+RUN dotnet restore "src/Fiscal.Api/Fiscal.Api.csproj"
+
+# Publica sem re-restaurar (código-fonte restante).
+COPY src/ ./src/
+WORKDIR /src/src/Fiscal.Api
+RUN dotnet publish -c Release -o /app/publish --no-restore
+
+# ---------- Stage 2: runtime ----------
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
+WORKDIR /app
+
+# curl para o healthcheck do compose.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Usuário não-root; pasta de logs do Serilog gravável.
+RUN mkdir -p /app/logs && chown -R $APP_UID:$APP_UID /app/logs
+
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
+
+COPY --from=build /app/publish .
+USER $APP_UID
+
+ENTRYPOINT ["dotnet", "Fiscal.Api.dll"]

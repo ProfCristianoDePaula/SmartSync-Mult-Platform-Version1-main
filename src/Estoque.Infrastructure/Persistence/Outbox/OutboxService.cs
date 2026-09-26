@@ -65,6 +65,7 @@ public sealed class OutboxService(EstoqueDbContext dbContext)
         nameof(LotNearExpiry) => "estoque.alerta.validade",
         nameof(OutletMarked) => "estoque.outlet.marcado",
         nameof(PurchaseSuggestionCreated) => "estoque.autocompra.criada",
+        nameof(VendaFinalizada) => "estoque.venda.finalizada",
         _ => null
     };
 }

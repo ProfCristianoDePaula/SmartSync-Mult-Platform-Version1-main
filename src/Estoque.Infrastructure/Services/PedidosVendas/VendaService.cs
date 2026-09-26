@@ -4,6 +4,8 @@ using Estoque.Application.Repositories;
 using Estoque.Domain.Common;
 using Estoque.Domain.Entities;
 using Estoque.Domain.Enums;
+using Estoque.Domain.Events;
+using Estoque.Infrastructure.Persistence.Outbox;
 
 namespace Estoque.Infrastructure.Services.PedidosVendas;
 
@@ -17,7 +19,8 @@ public sealed class VendaService(
     ICalculoFreteService freteService,
     ITenantParcelamentoProvider parcelamentoProvider,
     ITransactionScopeFactory txFactory,
-    IUnitOfWork uow) : IVendaService
+    IUnitOfWork uow,
+    OutboxService outbox) : IVendaService
 {
     private const decimal PrecoMock = 100m;
 

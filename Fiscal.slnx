@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fiscal.Api/Fiscal.Api.csproj" />
+    <Project Path="src/Fiscal.Application/Fiscal.Application.csproj" />
+    <Project Path="src/Fiscal.Domain/Fiscal.Domain.csproj" />
+    <Project Path="src/Fiscal.Infrastructure/Fiscal.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Fiscal.Tests/Fiscal.Tests.csproj" />
+  </Folder>
+</Solution>

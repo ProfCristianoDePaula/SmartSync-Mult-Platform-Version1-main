@@ -152,6 +152,66 @@ services:
       retries: 5
       start_period: 20s
 
+  # ===========================================================================
+  # FISCAL — terceiro microsserviço (Fiscal-1 / Etapa 36). Postgres próprio
+  # (database-per-service) e API na MESMA rede do Identity para consumir
+  # JWKS/gate de módulo por HTTP interno (consulta direta ao banco é proibida).
+  # Porta 8082 (livre: Identity usa 8080, Estoque usa ESTOQUE_API_PORT).
+  # ===========================================================================
+  fiscal-postgres:
+    image: postgres:16-alpine
+    container_name: fiscal_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${FISCAL_POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${FISCAL_POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${FISCAL_POSTGRES_DB:-fiscal}
+    volumes:
+      - fiscal_pgdata:/var/lib/postgresql/data
+    networks:
+      - identity-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${FISCAL_POSTGRES_USER:-postgres} -d ${FISCAL_POSTGRES_DB:-fiscal}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  fiscal-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.fiscal
+    container_name: fiscal_api
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: "Host=fiscal-postgres;Port=5432;Database=${FISCAL_POSTGRES_DB:-fiscal};Username=${FISCAL_POSTGRES_USER:-postgres};Password=${FISCAL_POSTGRES_PASSWORD:-postgres}"
+      # Issuer/Audience CANÔNICOS — devem ser os MESMOS do Identity (auditoria).
+      Jwt__Issuer: ${JWT_ISSUER:-http://localhost:8080}
+      Jwt__Audience: ${JWT_AUDIENCE:-identity-api}
+      # URL interna do Identity na rede compartilhada.
+      Identity__BaseUrl: ${IDENTITY_BASE_URL:-http://api:8080}
+      # Produção fiscal DESATIVADA por padrão (R10: só com flag + gate de prontidão).
+      Fiscal__ProducaoHabilitada: ${FISCAL_PRODUCAO_HABILITADA:-false}
+    ports:
+      - "${FISCAL_API_PORT:-8082}:8080"
+    networks:
+      - identity-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+      fiscal-postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
 networks:
   identity-net:
     driver: bridge
@@ -160,3 +220,4 @@ volumes:
   pgdata:
   jwtkeys:
   estoque_pgdata:
+  fiscal_pgdata:

@@ -45,3 +45,11 @@ public sealed record PurchaseSuggestionCreated(
     PurchaseSuggestionId PurchaseSuggestionId,
     Guid TenantId,
     Guid ProductId);
+
+/// <summary>Venda finalizada (Fiscal-13): gatilho de emissão fiscal opcional.</summary>
+public sealed record VendaFinalizada(
+    Guid VendaId,
+    Guid PedidoId,
+    Guid TenantId,
+    Guid? UnidadeId,
+    decimal ValorFinal);
